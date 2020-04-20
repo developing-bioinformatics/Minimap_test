@@ -1,0 +1,28 @@
+#!/bin/bash -l
+#
+#Number of cores requested
+#$ -pe omp 12
+
+#Give the name to the job
+#$ -N Index_Creation
+
+#Send an email when the job is finished (or aborted)
+#$ -m ae
+
+#Join the error and output file
+#$ -j y
+
+
+# Set the runtime limit (default 12 hours):
+#$ -l h_rt=144:00:00
+
+# Specify your project
+#$ -P ct-shbioinf
+
+cd /projectnb/ct-shbioinf/awillia5/Minimap_test/Research_project #use your notes or project folder. Wherever your script is located
+
+#path to minimap2
+mini="/projectnb/ct-shbioinf/awillia5/Minimap_test/Research_project/minimap2"
+$mini/minimap2 -x map-ont -t 12 -d nt.mmi /projectnb/ct-shbioinf/blast/nt.fa
+#then
+# $mini/minimap2 -a nt.mmi SRR11043497.fq > test.sam
