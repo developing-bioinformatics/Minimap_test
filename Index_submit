@@ -23,6 +23,6 @@ cd /projectnb/ct-shbioinf/awillia5/Minimap_test/Research_project #use your notes
 
 #path to minimap2
 mini="/projectnb/ct-shbioinf/awillia5/Minimap_test/Research_project/minimap2"
-# $mini/minimap2 -x map-ont -t 12 -d nt.mmi /projectnb/ct-shbioinf/blast/nt.fa
+$mini/minimap2 -x map-ont -t 12 -d nt.mmi /projectnb/ct-shbioinf/blast/nt.fa
 #then
  $mini/minimap2 nt.mmi SRR11043497.fastq > test2.paf
