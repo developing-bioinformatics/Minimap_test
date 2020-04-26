@@ -15,8 +15,8 @@ X=read_paf(file, max_tags=20)
 #target=X[1:100, 6]
 target=X[, 6]
 accid = as.character(target)
-taxaNodes<-read.nodes.sql("/projectnb/ct-shbioinf/taxonomy/data/nodes.dmp")
-taxaNames<-read.names.sql("/projectnb/ct-shbioinf/taxonomy/data/names.dmp")
+taxaNodes<-read.nodes.sql("/projectnb/ct-shbioinf/taxonomy/data/nodes.dmp", overwrite=TRUE)
+taxaNames<-read.names.sql("/projectnb/ct-shbioinf/taxonomy/data/names.dmp", overwrite=TRUE)
 ids<-accessionToTaxa(target$target_name, '/projectnb/ct-shbioinf/taxonomy/data/accessionTaxa.sql')
 taxlist=getTaxonomy(ids, taxaNodes, taxaNames)
 print(taxlist)
@@ -62,7 +62,7 @@ run = temp %>%
     theme(    
       axis.text.x  = element_text(angle = 45, hjust=1)
     ) +
-    xlab('')
+    xlab('Genus')
   
 )
 
@@ -81,6 +81,6 @@ familyRun=temp %>%
     theme(    
       axis.text.x  = element_text(angle = 45, hjust=1)
     ) +
-    xlab('')
+    xlab('Family')
   
 )
